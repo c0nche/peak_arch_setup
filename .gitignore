@@ -1,0 +1,10 @@
+# Local backup stash - intentionally not managed or committed
+.backups/
+
+# Generated / cache / editor leftovers
+__pycache__/
+*.py[cod]
+*.bak
+*.bak-*
+*~
+.DS_Store

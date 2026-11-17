@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Lock the screen over a blurred snapshot of the current desktop.
+# Vanilla i3lock cannot blur by itself: scrot grabs the screen, ffmpeg blurs it,
+# and i3lock displays the result. No ImageMagick or betterlockscreen needed.
+set -uo pipefail
+
+raw="$(mktemp --suffix=.png)"
+blurred="$(mktemp --suffix=.png)"
+trap 'rm -f "$raw" "$blurred"' EXIT
+
+if scrot -o "$raw" &&
+   ffmpeg -loglevel error -y -i "$raw" \
+       -vf "gblur=sigma=20,eq=brightness=-0.06" "$blurred"; then
+    i3lock --nofork --no-unlock-indicator --ignore-empty-password --image="$blurred"
+else
+    # If capture or blur fails, still lock with a plain color.
+    i3lock --nofork --no-unlock-indicator --ignore-empty-password --color=000000
+fi

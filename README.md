@@ -33,6 +33,7 @@ stow -D -v <package>    # remove the symlinks (restores original layout)
 | `rofi`                 | Launcher config                    |
 | `picom`                | Compositor config                  |
 | `fastfetch`            | Fetch config                       |
+| `btop`                 | System monitor config + Gotham theme |
 | `yazi`                 | File manager config + plugins      |
 | `networkmanager-dmenu` | Network menu config                |
 | `gsimplecal`           | Calendar config                    |

@@ -1,3 +1,4 @@
+![screen](images/screen_show.png)
 # dotfiles
 
 GNU Stow-managed configs for the Arch rice. Each top-level directory (except
@@ -24,30 +25,30 @@ stow -D -v <package>    # remove the symlinks (restores original layout)
 
 ## Packages
 
-| Package | Manages |
-|---|---|
-| `qtile` | Qtile config, autostart, bar icons |
-| `kitty` | Terminal config + theme |
-| `nvim` | AstroNvim config |
-| `rofi` | Launcher config |
-| `picom` | Compositor config |
-| `fastfetch` | Fetch config |
-| `yazi` | File manager config + plugins |
-| `networkmanager-dmenu` | Network menu config |
-| `gsimplecal` | Calendar config |
-| `gtk` | GTK 3/4 settings |
-| `mimeapps` | Default applications |
-| `pavucontrol` | Pavucontrol window config |
-| `qt` | Qt app config |
-| `zsh` | `.zshrc` |
-| `git` | `.gitconfig` |
-| `scripts` | `~/.local/bin/blur-lock` |
+| Package                | Manages                            |
+| ---------------------- | ---------------------------------- |
+| `qtile`                | Qtile config, autostart, bar icons |
+| `kitty`                | Terminal config + theme            |
+| `nvim`                 | AstroNvim config                   |
+| `rofi`                 | Launcher config                    |
+| `picom`                | Compositor config                  |
+| `fastfetch`            | Fetch config                       |
+| `yazi`                 | File manager config + plugins      |
+| `networkmanager-dmenu` | Network menu config                |
+| `gsimplecal`           | Calendar config                    |
+| `gtk`                  | GTK 3/4 settings                   |
+| `mimeapps`             | Default applications               |
+| `pavucontrol`          | Pavucontrol window config          |
+| `qt`                   | Qt app config                      |
+| `zsh`                  | `.zshrc`                           |
+| `git`                  | `.gitconfig`                       |
+| `scripts`              | `~/.local/bin/blur-lock`           |
 
 ## Notes
 
 - `.backups/` holds pre-stow backup files and is gitignored.
 - `gtk/.config/gtk-{3,4}.0/settigs.ini` keeps its original (misspelled)
   filename; GTK itself is themed via `gsettings`/dconf.
-- `scripts/.local/bin/blur-lock` captures with `scrot`, blurs with `ffmpeg`,
+- `scripts/.local/bin/blur-lock` captures with `x11grab` raw, blurs with `ffmpeg`,
   and locks with `i3lock` (`-u` disables the unlock indicator). `xss-lock` in
   `qtile/autostart.sh` calls it on idle and before suspend.
